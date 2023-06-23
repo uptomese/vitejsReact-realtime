@@ -8,9 +8,16 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.json({
-    message: 'Hello world',
+    message: 'api notti',
+  });
+});
+
+app.get('/api/runnoti', (req, res) => {
+  console.log('notti running');
+  res.json({
+    message: 'notti running',
   });
 });
 
