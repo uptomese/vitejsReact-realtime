@@ -20,6 +20,7 @@ const Alert = () => {
       title: 'Signed in successfully',
     });
   };
+
   return (
     <>
       <button className="btn btn-success" onClick={onAlert}>

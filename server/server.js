@@ -23,6 +23,12 @@ const socketIO = require('socket.io')(http, {
 //Add this before the app.get() block
 socketIO.on('connection', (socket) => {
   console.log(`⚡: ${socket.id} user just connected!`);
+
+  socket.on('runnoti', (data) => {
+    console.log('runnoti: ', data);
+    socketIO.emit('runnoti: ', data);
+  });
+
   socket.on('disconnect', () => {
     console.log('🔥: A user disconnected');
   });
