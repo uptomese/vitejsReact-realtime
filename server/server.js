@@ -9,28 +9,9 @@ const cors = require('cors');
 app.use(cors());
 
 app.get('/api', (req, res) => {
+  console.log('123');
   res.json({
     message: 'Hello world',
-  });
-});
-
-const socketIO = require('socket.io')(http, {
-  cors: {
-    origin: 'http://localhost:5173',
-  },
-});
-
-//Add this before the app.get() block
-socketIO.on('connection', (socket) => {
-  console.log(`⚡: ${socket.id} user just connected!`);
-
-  socket.on('runnoti', (data) => {
-    console.log('runnoti: ', data);
-    socketIO.emit('runnoti: ', data);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('🔥: A user disconnected');
   });
 });
 
